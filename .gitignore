@@ -1,0 +1,61 @@
+# gitignore file for IntelliJ / Maven projects
+# Matthijs Veldkamp, 2022
+
+# Exclude platform-specific IntelliJ configuration
+/.idea/
+*.iml
+
+# To only upload the source code to Gitlab, and not the compiled files
+target/
+# Sometimes IntelliJ defaults to /out/ as the output folder, so make sure to exclude it for improperly configured systems
+out/
+
+# Don't upload the raw Javadoc to GitLab either
+# You can easily generate it, and should be compiled into its own
+# jar file when it's completed
+/doc/java
+
+# Patterns for frequently used temporary files, such as autosave caches for text editors, lock files, or backups
+*swp
+*.tmp
+~*
+*.bak*
+*.vbak*
+.nfs*
+
+# Directory managing files for certain operating systems
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+## Linux
+.directory
+.debris
+.Trash-*
+## Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Recommended patterns from Github for Maven projects (from https://github.com/github/gitignore/blob/main/Maven.gitignore)
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+design/

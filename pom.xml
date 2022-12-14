@@ -6,7 +6,7 @@
 
     <artifactId>SimplePortCommunicator</artifactId>
     <groupId>org.example</groupId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
     <name>SimplePortCommunicator</name>
@@ -85,11 +85,6 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.8.2</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
-            <version>1.7.21</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.googlecode.lanterna/lanterna -->
         <dependency>

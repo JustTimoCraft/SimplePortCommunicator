@@ -1,10 +1,8 @@
+import communication.*
 import ui.Terminal
 import debug.Debug
 import debug.VerbosityLevel
 import config.Constants
-import connection.ConnectionListener
-import message.Message
-import message.MessageSender
 import ui.screens.ChatWindow
 import ui.screens.askForIP
 import ui.screens.askRetryToConnect
@@ -33,6 +31,7 @@ class SPC {
         val messageHistory = LinkedList<Message>()
         val newMessageLock = ReentrantLock()
         val newMessageSignal = newMessageLock.newCondition()
+        val autoResponders = ArrayList<AutoResponder>()
 
         fun addMessage(message: Message) {
             synchronized (messageHistory) {

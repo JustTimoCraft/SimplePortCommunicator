@@ -2,7 +2,7 @@ package config
 
 class Constants {
     companion object {
-        const val version = "0.1.0"
+        const val version = "0.2.0"
         const val remoteName = "Server"
         const val localName = "You"
         const val systemName = "SPC-System"

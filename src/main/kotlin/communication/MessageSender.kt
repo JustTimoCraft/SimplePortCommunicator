@@ -1,4 +1,4 @@
-package message
+package communication
 
 import config.Constants
 import debug.Debug

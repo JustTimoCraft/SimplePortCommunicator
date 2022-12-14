@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition
 import config.Constants
 import debug.Debug
 import debug.VerbosityLevel
-import message.UserInputThread
+import communication.UserInputThread
 import ui.input.textbox.TextBoxBuilder
 import java.lang.Integer.min
 import kotlin.math.ceil

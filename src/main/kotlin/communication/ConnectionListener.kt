@@ -1,9 +1,8 @@
-package connection
+package communication
 
 import config.Constants
 import debug.Debug
 import debug.VerbosityLevel
-import message.Message
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -35,8 +34,19 @@ class ConnectionListener: Runnable {
                         Debug.debugMessage(VerbosityLevel.WARNING, origin, "Disconnected from server")
                         continue
                     }
-                    Debug.debugMessage(VerbosityLevel.EXTRA, origin, "Received new message: $line")
-                    SPC.addMessage(Message(Constants.remoteName, line, System.currentTimeMillis()))
+                    //Debug.debugMessage(VerbosityLevel.EXTRA, origin, "Received new message: $line")
+                    var alreadyResponded = false
+                    synchronized (SPC.autoResponders) {
+                        for (responder in SPC.autoResponders) {
+                            if (responder.messageMatches(line)) {
+                                Debug.debugMessage(VerbosityLevel.EXTRA, origin,"Automatically responded to message $line with ${responder.responseMessage()}")
+                                SPC.messageSender.addMessage(responder.responseMessage())
+                                alreadyResponded = true
+                            }
+                        }
+                    }
+                    if (!alreadyResponded)
+                        SPC.addMessage(Message(Constants.remoteName, line, System.currentTimeMillis()))
                 }
             }
         } catch (e: IOException) {

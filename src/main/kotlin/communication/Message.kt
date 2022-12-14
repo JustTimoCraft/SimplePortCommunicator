@@ -1,4 +1,4 @@
-package message
+package communication
 
 import java.text.SimpleDateFormat
 import java.util.Date
